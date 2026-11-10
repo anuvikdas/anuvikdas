@@ -25,7 +25,9 @@ The end goal is to run resumable repairs across Kafka partitions while live proc
 
 ### ⏭️ [SponsorSkip](https://github.com/anuvikdas/YTSponsorSkip) · Chrome extension
 
-I built SponsorSkip to detect and skip sponsor reads on YouTube.
+You can get an extension to block YouTube ads, but what about the sponsor reads creators put in the video itself? I got tired of pressing the right arrow over and over, so I built YTSponsorSkip. It detects sponsor segments when you load a video and automatically skips them when playback reaches them. If you want to watch the segment, hit **Undo** to jump back.
+
+I made it for myself because I hate sitting through sponsor reads. I figured other people might want it too, so I shared it.
 
 > **Where would you start the skip?** A creator plugs their own photography presets, goes back to teaching, and later reads a paid Squarespace ad. An early version of SponsorSkip grouped all three into one skip.
 
