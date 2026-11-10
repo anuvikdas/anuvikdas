@@ -1,29 +1,45 @@
-### 🛠️ StreamPatch · In development
+# Hi, I’m Anuvik Das 👋
 
-I’m building [StreamPatch](https://github.com/anuvikdas/StreamPatch) around a question: if a bug has been writing the wrong inventory counts for hours, how do you fix those counts while orders are still coming in?
+I’m a computer science and math senior at Rutgers interested in **infrastructure and distributed systems**. I like building backend systems and figuring out what happens when they get slow, lose a connection, or have to make a decision with incomplete data.
 
-The goal is a C++ tool that replays Kafka events for affected products, previews what would change in PostgreSQL, and applies a repair only if the row hasn’t changed since the preview. If a sale comes in first, StreamPatch rebuilds the plan with that sale included. I want it to eventually handle resumable repairs across Kafka partitions and tell an operator when there isn’t enough event history to rebuild a row safely.
+I interned at **ING** in New York City, where I worked on trading infrastructure for the repo desk. I’m joining **Prophet** as a Software Engineer Intern this fall/winter, also in New York City.
+
+## 🛠️ What I’m building
+
+### [StreamPatch](https://github.com/anuvikdas/StreamPatch) · In development
+
+If a bug has been writing the wrong inventory counts for hours, how do you fix those counts while orders are still coming in?
+
+I’m building a C++ tool that replays Kafka events for affected products, previews the corrected inventory in PostgreSQL, and applies each repair only if the row still matches the version used to build the preview. If a sale comes in first, the old plan is rejected so the next one can include that sale.
+
+The end goal is to run resumable repairs across Kafka partitions while live processing continues, keep an audit trail of what changed, and flag rows that can’t be rebuilt from the available history.
 
 <details>
 <summary><strong>What got me interested in this problem</strong></summary>
 
-- Shopify moved inventory reservations from Redis to MySQL. Their checkout example got me thinking about what happens when a repair and a sale both touch the same inventory row. [Shopify Engineering](https://shopify.engineering/scaling-inventory-reservations)
-- Netflix built a data canary to catch bad catalog transformations before they reach viewers. I wanted to explore the next question: how do you recover once incorrect data is already being served? [Netflix TechBlog](https://netflixtechblog.com/the-data-canary-how-netflix-validates-catalog-metadata-18b699d58e36)
-- Uber strengthened consistency in CacheFront because asynchronous cache invalidation could leave readers seeing stale values. That got me thinking about the time between calculating a repair and applying it. [Uber Engineering](https://www.uber.com/hn/en/blog/how-uber-serves-over-150-million-reads/)
+- **Shopify** moved checkout inventory reservations from Redis to MySQL. Their example of two buyers trying to claim the last unit got me thinking about what happens when a sale and a repair touch the same row. [Shopify Engineering](https://shopify.engineering/scaling-inventory-reservations)
+- **Netflix** built a data canary to catch bad catalog transformations before they reach viewers. That made me curious about what recovery looks like once incorrect data is already being served. [Netflix TechBlog](https://netflixtechblog.com/the-data-canary-how-netflix-validates-catalog-metadata-18b699d58e36)
+- **Uber** strengthened CacheFront’s consistency because asynchronous invalidation could leave readers seeing stale values. That got me thinking about the gap between calculating a repair and applying it. [Uber Engineering](https://www.uber.com/hn/en/blog/how-uber-serves-over-150-million-reads/)
 
 </details>
 
-### ⏭️ SponsorSkip
+### ⏭️ [SponsorSkip](https://github.com/anuvikdas/YTSponsorSkip) · Chrome extension
 
-I built [SponsorSkip](https://github.com/anuvikdas/YTSponsorSkip), a Chrome extension that detects and skips sponsor reads on YouTube.
+I built SponsorSkip to detect and skip sponsor reads on YouTube.
 
-> **Where would you start the skip?** A creator plugs their own photography presets, goes back to teaching, then starts a paid Squarespace read at **7:55**.
+> **Where would you start the skip?** A creator plugs their own photography presets, goes back to teaching, and later reads a paid Squarespace ad. An early version of SponsorSkip grouped all three into one skip.
 
 <details>
 <summary><strong>See what SponsorSkip got wrong</strong></summary>
 
-An early version grouped the preset plug and the Squarespace ad into one long skip. It caught part of the ad, but it would have skipped part of the photography lesson too.
+I marked the paid Squarespace read at **7:55–8:48**. The detector proposed skipping roughly **5:08–8:35**, which would have cut into the photography lesson and still missed the end of the ad. [Watch the paid read from 7:55](https://www.youtube.com/watch?v=M_Ic-6GE7gs&t=475s)
 
-That’s why I review videos by hand and track two numbers separately: how many seconds of the sponsor read I missed and how many seconds of the actual video I would have skipped.
+That’s why I review videos by hand and track how many seconds of the sponsor read I missed and how many seconds of regular footage I would have skipped.
 
 </details>
+
+## 🌱 Open source
+
+I’m looking to contribute to open-source projects that tackle performance and reliability problems in infrastructure and distributed systems, especially under load.
+
+🏀 Outside of code, I like playing and watching basketball.
