@@ -2,7 +2,7 @@
 
 I’m a computer science and math senior at Rutgers interested in **infrastructure and distributed systems**. I like building backend systems and figuring out what happens when they get slow, lose a connection, or have to make a decision with incomplete data.
 
-I interned at **ING** in New York City, where I worked on trading infrastructure for the repo desk. I’m joining **Prophet** as a Software Engineer Intern this fall/winter, also in New York City.
+I interned at [**ING**](https://ing.com/) in New York City, where I worked on trading infrastructure for the repo desk. I’m joining [**Prophet**](https://prophet.com/) as a Software Engineer Intern this fall/winter, also in New York City.
 
 ## 🛠️ What I’m building
 
